@@ -1,0 +1,6 @@
+{
+  "whiskybroker base url" : "https://www.whiskybroker.co.uk",
+  "email address" : "thiemo@gmail.com",
+  "data dir" : "data",
+  "general logging level" : "info"
+}
