@@ -13,7 +13,7 @@ logger = logging.getLogger('whisky_tracker.config_parser')
 
 #config fields dict with key : value type
 REQUIRED_CONFIG_FIELDS = {"whiskybroker base url" : str, "email address" : str, "data dir": str, "general logging level" :str}
-OPTONAL_CONFIG_FIELDS = {}
+OPTIONAL_CONFIG_FIELDS = {}
 
 
 def get_missing_config_fields(config_dict):

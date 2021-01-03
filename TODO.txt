@@ -1,1 +1,5 @@
-debug config validator, the matching of datatypes to the required one is going wrong.
+#work on parsing of whiskybroker website
+#save whiskies to disk
+#save whiskies to database
+#add logging
+#code style checks
