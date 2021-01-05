@@ -1,13 +1,11 @@
-from utils.request_util import get_response_from_url
+from utils.request_util import get_page_content
 from utils.html_parser_util import Parser
 
-class whiskybroker_scraper:
+class Whiskybroker_scraper:
     def __init__(self, base_url):
         self.base_url = base_url
 
 
-    def get_page_content(self, url):
-        return get_response_from_url(url)
 
     def scrape_page(self, url):
         parser = Parser(content=self.get_page_content(url))
@@ -15,7 +13,7 @@ class whiskybroker_scraper:
 
     # scrape both whiskies and amount of pages that we will need to scrape
     def scrape_first_page(self):
-        parser = Parser(content=self.get_page_content(self.base_url))
+        parser = Parser(content=get_page_content(self.base_url))
         whiskies = parser.get_whiskies_information()
         extra_page_amount = parser.get_extra_pages_amount()
         return whiskies, extra_page_amount
@@ -27,8 +25,7 @@ class whiskybroker_scraper:
         for i in range(0, extra_pages_amount_to_scrape):
             #add 2 to i, once to offset indexing from 1, and once because we already scraped the first page
             url = self.base_url + f'page={i+2}'
-            page = get_response_from_url(url)
-            page_parser = Parser(content=page.content)
+            page_parser = Parser(content=get_page_content(url))
             page_whiskies = page_parser.get_whiskies_information()
             all_whiskies.append(page_whiskies)
         #flatten sublists
