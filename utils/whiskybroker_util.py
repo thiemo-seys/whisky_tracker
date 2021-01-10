@@ -22,6 +22,7 @@ class Whiskybroker_scraper:
     def scrape_all_pages(self):
         all_whiskies = []
         first_whiskies, extra_pages_amount_to_scrape = self.scrape_first_page()
+        all_whiskies.append(first_whiskies)
         for i in range(0, extra_pages_amount_to_scrape):
             #add 2 to i, once to offset indexing from 1, and once because we already scraped the first page
             url = self.base_url + f'page={i+2}'

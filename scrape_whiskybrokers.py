@@ -7,4 +7,5 @@ from utils.config_parser import Parameters
 
 
 scraper = Whiskybroker_scraper(Parameters.whiskybroker_base_url)
-print(scraper.scrape_all_pages())
+whiskies = scraper.scrape_all_pages()
+print(len(whiskies))
